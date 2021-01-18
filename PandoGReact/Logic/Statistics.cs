@@ -10,16 +10,13 @@ namespace PandoGReact.Logic
     {
 
 
-      
-
-
-
+        /// <summary>
+        /// Take jobs raw data from db and calculate the active jobs per day
+        /// </summary>
+        /// <param name="jobLines"></param>
+        /// <returns></returns>
         public Dictionary<DateTime, int> CalcStats(List<JobLine> jobLines)
         {
-
-            //var dates = jobLines.Select(a => new KeyValuePair<DateTime, int>(a.DateOpen, 0)).Distinct();
-            //Dictionary<DateTime, int> jobsStats = new Dictionary<DateTime, int>();
-
             var dates = jobLines.Select(a => a.DateOpen).Distinct();
             Dictionary<DateTime, int> jobsStats = new Dictionary<DateTime, int>();
             foreach (var currentDate in dates)
@@ -32,42 +29,11 @@ namespace PandoGReact.Logic
                         jobsStats[currentDate] = jobsStats[currentDate] + 1;
                     }
                 }
-                //var newJobs = jobLines.Where(a => a.DateOpen == currentDate);
-
             }
             return jobsStats;
-
-          
-            //DateTime date = new DateTime();
-
-            //for (int i = 0; i < jobLines.Count; i++)
-            //{
-            //    if (i == 0 && IsActiveJob(jobLines[i]))
-            //    {
-            //        date = jobLines[i].DateOpen;
-            //        jobsStats.Add(date, 1);
-
-            //    }
-            //    else if (jobLines[i].DateOpen == date)
-            //    {
-            //        if (IsActiveJob(jobLines[i]))
-            //        {
-            //            jobsStats[date] = jobsStats[date] + 1;
-            //        }
-            //    }
-            //    else
-            //    {
-            //        date = jobLines[i].DateOpen;
-            //        if (IsActiveJob(jobLines[i]))
-            //        {
-            //            jobsStats.Add(date, 1);
-            //        }
-            //    }
-            //}
-
-           // return jobsStats;
-
         }
+
+
         private bool IsActiveJob(JobLine job, DateTime currentDate)
         {
             if (job.DateOpen <= currentDate)

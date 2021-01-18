@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 namespace PandoGReact.Models
 {
 
-
+    /// <summary>
+    /// Helper object to parse the return statistical data
+    /// </summary>
     public class DataPoint
     {
         public DateTime Date { get; set; }

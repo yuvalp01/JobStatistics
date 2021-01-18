@@ -28,16 +28,15 @@ namespace PandoGReact.Repositories
 
          }
 
-
-
-
-
+        /// <summary>
+        /// Insert db raw table similar to how it could look in real life
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         private void SeedRows(ModelBuilder modelBuilder)
         {
 
             var id = 1;
             DateTime dateOpenJob = new DateTime(2020, 4, 30);
-            //DateTime dateCloseJob = new DateTime(2020, 5, 1);
             var stockJobs = new Faker<JobLine>()
                 .RuleFor(m => m.Id, f => id++)
                 .RuleFor(m => m.DateOpen, f => dateOpenJob = dateOpenJob.AddDays(1))
@@ -61,23 +60,13 @@ namespace PandoGReact.Repositories
                 .Entity<ViewLine>()
                 .HasData(stockViews.Generate(600));
 
-
-            //id = 1;
-            //date = new DateTime(2020, 4, 30);
-            //var stockPrediction = new Faker<PredictionStat>()
-            //    .RuleFor(m => m.Id, f => id++)
-            //    .RuleFor(m => m.Date, f => date.AddDays(1))
-            //    .RuleFor(m => m.Count, f => f.Random.Int(100, 1500));
-
-            //modelBuilder
-            //    .Entity<PredictionStat>()
-            //    .HasData(stockPrediction.Generate(150));
-
-
         }
 
 
-
+        /// <summary>
+        /// Insert statistical data in db to enable better view of the chart with small amount of data
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         private void SeedStatistics(ModelBuilder modelBuilder)
         {
             DateTime date = new DateTime(2020, 4, 30);
@@ -107,13 +96,3 @@ namespace PandoGReact.Repositories
 
     }
 }
-
-
-//private DateTime? GetRandomCloseDate(DateTime openDate)
-//{
-//    Random randomOpenDays = new Random();
-//    int daysOpen = randomOpenDays.Next(0, 5);
-//    if (daysOpen==0) return null;
-//    else return openDate.AddDays(daysOpen);
-
-//}

@@ -15,7 +15,10 @@ namespace PandoGReact.Repositories
         }
 
 
-
+        /// <summary>
+        /// This function return the data in a G charts array format
+        /// </summary>
+        /// <returns></returns>
         public override IEnumerable<IEnumerable<object>> GetChartDataObject()
         {
             Statistics statistics = new Statistics();
@@ -34,7 +37,13 @@ namespace PandoGReact.Repositories
         }
 
 
-
+        /// <summary>
+        /// Turn raw data into statistics
+        /// </summary>
+        /// <param name="activeJobs"></param>
+        /// <param name="views"></param>
+        /// <param name="predictions"></param>
+        /// <returns></returns>
         private List<List<object>> GenerateDataObject(
     Dictionary<DateTime, int> activeJobs,
     Dictionary<DateTime, int> views,
@@ -63,55 +72,9 @@ namespace PandoGReact.Repositories
 
                 row.Add(activeJobs[date]);
 
-                //List<object> row = new List<object>
-                //{
-                //    date.ToString("MMM d"),
-                //    views[date],
-                //    predictions[date],
-                //    activeJobs[date]
-                //};
             }
             return data;
         }
-        //public override IEnumerable<IEnumerable<object>> GetChartDataObject()
-        //{
-        //    List<object> title = GetTitles();
-        //    IEnumerable<DataPoint> dataPoints = GetDataPoints();
 
-        //    List<List<object>> data = new List<List<object>>();
-        //    data.Add(title);
-        //    foreach (var dataPoint in dataPoints)
-        //    {
-        //        List<object> row = new List<object> {
-        //            dataPoint.Date.ToString("MMM d"),
-        //            dataPoint.JobViews,
-        //            dataPoint.ViewsPrediction,
-        //            dataPoint.ActiveJobs
-        //       };
-        //        data.Add(row);
-        //    }
-        //    return data;
-        //}
-
-
-        //public IEnumerable<DataPoint> GetDataPoints()
-        //{
-
-
-        //    var dataPoints = from jobs in _context.JobsStats
-        //                     join views in _context.ViewStats on jobs.Date equals views.Date
-        //                     join pred in _context.PredictionStats on views.Date equals pred.Date
-        //                     select new DataPoint
-        //                     {
-        //                         Date = jobs.Date,
-        //                         ActiveJobs = jobs.Count,
-        //                         JobViews = views.Count,
-        //                         ViewsPrediction = pred.Count
-        //                     };
-
-
-        //    return dataPoints;
-
-        //}
     }
 }

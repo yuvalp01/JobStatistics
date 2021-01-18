@@ -21,7 +21,10 @@ namespace PandoGReact.Repositories
             return new List<object> { "Date", "Job views", "Predicted jobs views", "Active jobs" };
         }
 
-
+        /// <summary>
+        /// This function return the data in a G charts array format
+        /// </summary>
+        /// <returns></returns>
         public abstract IEnumerable<IEnumerable<object>> GetChartDataObject();
 
     }

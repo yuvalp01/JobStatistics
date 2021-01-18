@@ -13,7 +13,10 @@ namespace PandoGReact.Repositories
         }
 
 
-
+        /// <summary>
+        /// This function return the data in a G charts array format
+        /// </summary>
+        /// <returns></returns>
         public override IEnumerable<IEnumerable<object>> GetChartDataObject()
         {
             List<object> title = GetTitles();
@@ -34,7 +37,10 @@ namespace PandoGReact.Repositories
             return data;
         }
 
-
+        /// <summary>
+        /// Create DataPoint list based on the statistics tables
+        /// </summary>
+        /// <returns></returns>
         private IEnumerable<DataPoint> GetDataPoints()
         {
 

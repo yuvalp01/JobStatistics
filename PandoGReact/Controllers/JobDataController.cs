@@ -1,12 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using PandoGReact.Logic;
-using PandoGReact.Models;
 using PandoGReact.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace PandoGReact.Controllers
 {
@@ -18,14 +15,12 @@ namespace PandoGReact.Controllers
 
 
         private readonly ILogger<JobDataController> _logger;
-       // private readonly StatisticsRepository _repo_stats;
         private readonly Repository _repo;
 
         public JobDataController(JobContext context, Repository repo, ILogger<JobDataController> logger)
         {
             _logger = logger;
              _repo = repo;
-            //_repo_stats = new StatisticsRepository(context);
         }
 
 

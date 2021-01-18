@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { Redirect, Route } from 'react-router';
 import Layout from './components/Layout';
-// import Home from './components/Home';
-// import Counter from './components/Counter';
 import FetchJobData from './components/FetchJobData';
 
 import './custom.css'
