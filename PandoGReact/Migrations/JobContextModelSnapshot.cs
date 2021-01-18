@@ -19,7 +19,380 @@ namespace PandoGReact.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.2");
 
-            modelBuilder.Entity("PandoGReact.Models.Job", b =>
+            modelBuilder.Entity("PandoGReact.Models.JobLine", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime?>("DateClose")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateOpen")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("JobLines");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DateClose = new DateTime(2020, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Occaecati quasi ullam."
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DateClose = new DateTime(2020, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Ex incidunt dolores."
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DateClose = new DateTime(2020, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Velit provident omnis."
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DateClose = new DateTime(2020, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Pariatur inventore possimus."
+                        },
+                        new
+                        {
+                            Id = 5,
+                            DateClose = new DateTime(2020, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Velit quod nihil."
+                        },
+                        new
+                        {
+                            Id = 6,
+                            DateClose = new DateTime(2020, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Est nobis reprehenderit."
+                        },
+                        new
+                        {
+                            Id = 7,
+                            DateClose = new DateTime(2020, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Repellendus voluptas consequatur."
+                        },
+                        new
+                        {
+                            Id = 8,
+                            DateClose = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Et qui soluta."
+                        },
+                        new
+                        {
+                            Id = 9,
+                            DateClose = new DateTime(2020, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Sequi magni quia."
+                        },
+                        new
+                        {
+                            Id = 10,
+                            DateClose = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Id assumenda qui."
+                        },
+                        new
+                        {
+                            Id = 11,
+                            DateClose = new DateTime(2020, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Qui impedit sint."
+                        },
+                        new
+                        {
+                            Id = 12,
+                            DateClose = new DateTime(2020, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Consequuntur harum omnis."
+                        },
+                        new
+                        {
+                            Id = 13,
+                            DateClose = new DateTime(2020, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Unde et consectetur."
+                        },
+                        new
+                        {
+                            Id = 14,
+                            DateClose = new DateTime(2020, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Eum et autem."
+                        },
+                        new
+                        {
+                            Id = 15,
+                            DateClose = new DateTime(2020, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Cum fugiat pariatur."
+                        },
+                        new
+                        {
+                            Id = 16,
+                            DateClose = new DateTime(2020, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Eos dolor velit."
+                        },
+                        new
+                        {
+                            Id = 17,
+                            DateClose = new DateTime(2020, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "At quis distinctio."
+                        },
+                        new
+                        {
+                            Id = 18,
+                            DateClose = new DateTime(2020, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Recusandae quo necessitatibus."
+                        },
+                        new
+                        {
+                            Id = 19,
+                            DateClose = new DateTime(2020, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Sint dolores ducimus."
+                        },
+                        new
+                        {
+                            Id = 20,
+                            DateClose = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Ipsum sapiente laboriosam."
+                        },
+                        new
+                        {
+                            Id = 21,
+                            DateClose = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Numquam in velit."
+                        },
+                        new
+                        {
+                            Id = 22,
+                            DateClose = new DateTime(2020, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Ut vel quibusdam."
+                        },
+                        new
+                        {
+                            Id = 23,
+                            DateClose = new DateTime(2020, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Facere quis et."
+                        },
+                        new
+                        {
+                            Id = 24,
+                            DateClose = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Sint incidunt molestiae."
+                        },
+                        new
+                        {
+                            Id = 25,
+                            DateClose = new DateTime(2020, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Molestias quo culpa."
+                        },
+                        new
+                        {
+                            Id = 26,
+                            DateClose = new DateTime(2020, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Ut eum vero."
+                        },
+                        new
+                        {
+                            Id = 27,
+                            DateClose = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Quod perspiciatis hic."
+                        },
+                        new
+                        {
+                            Id = 28,
+                            DateClose = new DateTime(2020, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Voluptatibus qui nam."
+                        },
+                        new
+                        {
+                            Id = 29,
+                            DateClose = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Dolores optio autem."
+                        },
+                        new
+                        {
+                            Id = 30,
+                            DateClose = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Voluptas dolor eos."
+                        },
+                        new
+                        {
+                            Id = 31,
+                            DateClose = new DateTime(2020, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "In itaque delectus."
+                        },
+                        new
+                        {
+                            Id = 32,
+                            DateClose = new DateTime(2020, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Deserunt sed est."
+                        },
+                        new
+                        {
+                            Id = 33,
+                            DateClose = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Nihil quia rem."
+                        },
+                        new
+                        {
+                            Id = 34,
+                            DateClose = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Eum qui amet."
+                        },
+                        new
+                        {
+                            Id = 35,
+                            DateClose = new DateTime(2020, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Quisquam cumque veniam."
+                        },
+                        new
+                        {
+                            Id = 36,
+                            DateClose = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Eos unde quod."
+                        },
+                        new
+                        {
+                            Id = 37,
+                            DateClose = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Fuga non ad."
+                        },
+                        new
+                        {
+                            Id = 38,
+                            DateClose = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Vero qui molestias."
+                        },
+                        new
+                        {
+                            Id = 39,
+                            DateClose = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Optio sed dolor."
+                        },
+                        new
+                        {
+                            Id = 40,
+                            DateClose = new DateTime(2020, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Et numquam sed."
+                        },
+                        new
+                        {
+                            Id = 41,
+                            DateClose = new DateTime(2020, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Qui voluptatem perspiciatis."
+                        },
+                        new
+                        {
+                            Id = 42,
+                            DateClose = new DateTime(2020, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Molestiae sit suscipit."
+                        },
+                        new
+                        {
+                            Id = 43,
+                            DateClose = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Molestias doloribus error."
+                        },
+                        new
+                        {
+                            Id = 44,
+                            DateClose = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Eveniet qui dolor."
+                        },
+                        new
+                        {
+                            Id = 45,
+                            DateClose = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Adipisci est sit."
+                        },
+                        new
+                        {
+                            Id = 46,
+                            DateClose = new DateTime(2020, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Nulla quas eum."
+                        },
+                        new
+                        {
+                            Id = 47,
+                            DateClose = new DateTime(2020, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Libero qui quidem."
+                        },
+                        new
+                        {
+                            Id = 48,
+                            DateClose = new DateTime(2020, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Voluptate voluptatem occaecati."
+                        },
+                        new
+                        {
+                            Id = 49,
+                            DateClose = new DateTime(2020, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Culpa distinctio quia."
+                        },
+                        new
+                        {
+                            Id = 50,
+                            DateClose = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOpen = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Consequatur itaque et."
+                        });
+                });
+
+            modelBuilder.Entity("PandoGReact.Models.JobStat", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -34,25 +407,25 @@ namespace PandoGReact.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("jobs");
+                    b.ToTable("jobStats", "stats");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Count = 3,
+                            Count = 2,
                             Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            Count = 2,
+                            Count = 1,
                             Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
-                            Count = 4,
+                            Count = 3,
                             Date = new DateTime(2020, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -64,13 +437,13 @@ namespace PandoGReact.Migrations
                         new
                         {
                             Id = 5,
-                            Count = 5,
+                            Count = 6,
                             Date = new DateTime(2020, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 6,
-                            Count = 7,
+                            Count = 8,
                             Date = new DateTime(2020, 5, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -82,31 +455,31 @@ namespace PandoGReact.Migrations
                         new
                         {
                             Id = 8,
-                            Count = 10,
+                            Count = 9,
                             Date = new DateTime(2020, 5, 8, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 9,
-                            Count = 13,
+                            Count = 10,
                             Date = new DateTime(2020, 5, 9, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 10,
-                            Count = 12,
+                            Count = 10,
                             Date = new DateTime(2020, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 11,
-                            Count = 11,
+                            Count = 12,
                             Date = new DateTime(2020, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 12,
-                            Count = 13,
+                            Count = 12,
                             Date = new DateTime(2020, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -118,138 +491,138 @@ namespace PandoGReact.Migrations
                         new
                         {
                             Id = 14,
-                            Count = 11,
+                            Count = 14,
                             Date = new DateTime(2020, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 15,
-                            Count = 15,
+                            Count = 13,
                             Date = new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 16,
-                            Count = 13,
+                            Count = 17,
                             Date = new DateTime(2020, 5, 16, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 17,
-                            Count = 16,
+                            Count = 18,
                             Date = new DateTime(2020, 5, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 18,
-                            Count = 14,
+                            Count = 17,
                             Date = new DateTime(2020, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 19,
-                            Count = 15,
+                            Count = 20,
                             Date = new DateTime(2020, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 20,
-                            Count = 14,
+                            Count = 21,
                             Date = new DateTime(2020, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 21,
-                            Count = 15,
+                            Count = 20,
                             Date = new DateTime(2020, 5, 21, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 22,
-                            Count = 18,
+                            Count = 19,
                             Date = new DateTime(2020, 5, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 23,
-                            Count = 21,
+                            Count = 20,
                             Date = new DateTime(2020, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 24,
-                            Count = 22,
+                            Count = 20,
                             Date = new DateTime(2020, 5, 24, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 25,
-                            Count = 24,
+                            Count = 21,
                             Date = new DateTime(2020, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 26,
-                            Count = 25,
+                            Count = 19,
                             Date = new DateTime(2020, 5, 26, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 27,
-                            Count = 26,
+                            Count = 20,
                             Date = new DateTime(2020, 5, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 28,
-                            Count = 29,
+                            Count = 22,
                             Date = new DateTime(2020, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 29,
-                            Count = 30,
+                            Count = 22,
                             Date = new DateTime(2020, 5, 29, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 30,
-                            Count = 33,
+                            Count = 24,
                             Date = new DateTime(2020, 5, 30, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 31,
-                            Count = 32,
+                            Count = 24,
                             Date = new DateTime(2020, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 32,
-                            Count = 31,
+                            Count = 24,
                             Date = new DateTime(2020, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 33,
-                            Count = 29,
+                            Count = 24,
                             Date = new DateTime(2020, 6, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 34,
-                            Count = 28,
+                            Count = 27,
                             Date = new DateTime(2020, 6, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 35,
-                            Count = 31,
+                            Count = 27,
                             Date = new DateTime(2020, 6, 4, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
-            modelBuilder.Entity("PandoGReact.Models.JobView", b =>
+            modelBuilder.Entity("PandoGReact.Models.PredictionStat", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -264,145 +637,145 @@ namespace PandoGReact.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("jobViews");
+                    b.ToTable("predictionStats", "stats");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Count = 60,
+                            Count = 44,
                             Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            Count = 50,
+                            Count = 22,
                             Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
-                            Count = 90,
+                            Count = 77,
                             Date = new DateTime(2020, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 4,
-                            Count = 80,
+                            Count = 99,
                             Date = new DateTime(2020, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 5,
-                            Count = 110,
+                            Count = 143,
                             Date = new DateTime(2020, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 6,
-                            Count = 150,
+                            Count = 176,
                             Date = new DateTime(2020, 5, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 7,
-                            Count = 150,
+                            Count = 154,
                             Date = new DateTime(2020, 5, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 8,
-                            Count = 210,
+                            Count = 209,
                             Date = new DateTime(2020, 5, 8, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 9,
-                            Count = 270,
+                            Count = 220,
                             Date = new DateTime(2020, 5, 9, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 10,
-                            Count = 240,
+                            Count = 220,
                             Date = new DateTime(2020, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 11,
-                            Count = 230,
+                            Count = 264,
                             Date = new DateTime(2020, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 12,
-                            Count = 260,
+                            Count = 275,
                             Date = new DateTime(2020, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 13,
-                            Count = 230,
+                            Count = 242,
                             Date = new DateTime(2020, 5, 13, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 14,
-                            Count = 230,
+                            Count = 319,
                             Date = new DateTime(2020, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 15,
-                            Count = 300,
+                            Count = 297,
                             Date = new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 16,
-                            Count = 270,
+                            Count = 385,
                             Date = new DateTime(2020, 5, 16, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 17,
-                            Count = 320,
+                            Count = 396,
                             Date = new DateTime(2020, 5, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 18,
-                            Count = 290,
+                            Count = 374,
                             Date = new DateTime(2020, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 19,
-                            Count = 310,
+                            Count = 451,
                             Date = new DateTime(2020, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 20,
-                            Count = 290,
+                            Count = 462,
                             Date = new DateTime(2020, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 21,
-                            Count = 300,
+                            Count = 451,
                             Date = new DateTime(2020, 5, 21, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 22,
-                            Count = 370,
+                            Count = 418,
                             Date = new DateTime(2020, 5, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 23,
-                            Count = 430,
+                            Count = 440,
                             Date = new DateTime(2020, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -414,72 +787,992 @@ namespace PandoGReact.Migrations
                         new
                         {
                             Id = 25,
-                            Count = 480,
+                            Count = 462,
                             Date = new DateTime(2020, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 26,
-                            Count = 510,
+                            Count = 429,
                             Date = new DateTime(2020, 5, 26, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 27,
-                            Count = 530,
+                            Count = 440,
                             Date = new DateTime(2020, 5, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 28,
-                            Count = 590,
+                            Count = 495,
                             Date = new DateTime(2020, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 29,
-                            Count = 610,
+                            Count = 484,
                             Date = new DateTime(2020, 5, 29, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 30,
-                            Count = 660,
+                            Count = 539,
                             Date = new DateTime(2020, 5, 30, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 31,
-                            Count = 640,
+                            Count = 528,
                             Date = new DateTime(2020, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 32,
-                            Count = 620,
+                            Count = 539,
                             Date = new DateTime(2020, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 33,
-                            Count = 590,
+                            Count = 528,
                             Date = new DateTime(2020, 6, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 34,
-                            Count = 560,
+                            Count = 605,
                             Date = new DateTime(2020, 6, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 35,
-                            Count = 630,
+                            Count = 594,
                             Date = new DateTime(2020, 6, 4, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
-            modelBuilder.Entity("PandoGReact.Models.JobViewPrediction", b =>
+            modelBuilder.Entity("PandoGReact.Models.ViewLine", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("JobId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ViewLines");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 10
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 36
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 29
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 22
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 18
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 42
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 10
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 39
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 22
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 7
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 35
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 26
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 24
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 25
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 49
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 2
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 9
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 44
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 40
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 50
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 36
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 25
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 16
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 16
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 45
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 9
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 41
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 31
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 43
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 20
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 48
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 30
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 7
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 5
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 10
+                        },
+                        new
+                        {
+                            Id = 36,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 27
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 50
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 4
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 1
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 3
+                        },
+                        new
+                        {
+                            Id = 41,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 38
+                        },
+                        new
+                        {
+                            Id = 42,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 18
+                        },
+                        new
+                        {
+                            Id = 43,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 21
+                        },
+                        new
+                        {
+                            Id = 44,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 23
+                        },
+                        new
+                        {
+                            Id = 45,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 7
+                        },
+                        new
+                        {
+                            Id = 46,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 32
+                        },
+                        new
+                        {
+                            Id = 47,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 29
+                        },
+                        new
+                        {
+                            Id = 48,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 14
+                        },
+                        new
+                        {
+                            Id = 49,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 26
+                        },
+                        new
+                        {
+                            Id = 50,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 7
+                        },
+                        new
+                        {
+                            Id = 51,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 10
+                        },
+                        new
+                        {
+                            Id = 52,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 18
+                        },
+                        new
+                        {
+                            Id = 53,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 18
+                        },
+                        new
+                        {
+                            Id = 54,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 2
+                        },
+                        new
+                        {
+                            Id = 55,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 30
+                        },
+                        new
+                        {
+                            Id = 56,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 36
+                        },
+                        new
+                        {
+                            Id = 57,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 16
+                        },
+                        new
+                        {
+                            Id = 58,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 39
+                        },
+                        new
+                        {
+                            Id = 59,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 43
+                        },
+                        new
+                        {
+                            Id = 60,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 19
+                        },
+                        new
+                        {
+                            Id = 61,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 7
+                        },
+                        new
+                        {
+                            Id = 62,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 18
+                        },
+                        new
+                        {
+                            Id = 63,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 33
+                        },
+                        new
+                        {
+                            Id = 64,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 45
+                        },
+                        new
+                        {
+                            Id = 65,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 32
+                        },
+                        new
+                        {
+                            Id = 66,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 6
+                        },
+                        new
+                        {
+                            Id = 67,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 7
+                        },
+                        new
+                        {
+                            Id = 68,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 2
+                        },
+                        new
+                        {
+                            Id = 69,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 31
+                        },
+                        new
+                        {
+                            Id = 70,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 39
+                        },
+                        new
+                        {
+                            Id = 71,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 49
+                        },
+                        new
+                        {
+                            Id = 72,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 48
+                        },
+                        new
+                        {
+                            Id = 73,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 24
+                        },
+                        new
+                        {
+                            Id = 74,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 7
+                        },
+                        new
+                        {
+                            Id = 75,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 36
+                        },
+                        new
+                        {
+                            Id = 76,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 34
+                        },
+                        new
+                        {
+                            Id = 77,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 17
+                        },
+                        new
+                        {
+                            Id = 78,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 31
+                        },
+                        new
+                        {
+                            Id = 79,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 25
+                        },
+                        new
+                        {
+                            Id = 80,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 47
+                        },
+                        new
+                        {
+                            Id = 81,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 41
+                        },
+                        new
+                        {
+                            Id = 82,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 13
+                        },
+                        new
+                        {
+                            Id = 83,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 45
+                        },
+                        new
+                        {
+                            Id = 84,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 24
+                        },
+                        new
+                        {
+                            Id = 85,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 8
+                        },
+                        new
+                        {
+                            Id = 86,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 19
+                        },
+                        new
+                        {
+                            Id = 87,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 36
+                        },
+                        new
+                        {
+                            Id = 88,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 9
+                        },
+                        new
+                        {
+                            Id = 89,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 31
+                        },
+                        new
+                        {
+                            Id = 90,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 28
+                        },
+                        new
+                        {
+                            Id = 91,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 48
+                        },
+                        new
+                        {
+                            Id = 92,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 41
+                        },
+                        new
+                        {
+                            Id = 93,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 44
+                        },
+                        new
+                        {
+                            Id = 94,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 48
+                        },
+                        new
+                        {
+                            Id = 95,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 35
+                        },
+                        new
+                        {
+                            Id = 96,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 22
+                        },
+                        new
+                        {
+                            Id = 97,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 41
+                        },
+                        new
+                        {
+                            Id = 98,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 45
+                        },
+                        new
+                        {
+                            Id = 99,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 16
+                        },
+                        new
+                        {
+                            Id = 100,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 12
+                        },
+                        new
+                        {
+                            Id = 101,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 28
+                        },
+                        new
+                        {
+                            Id = 102,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 12
+                        },
+                        new
+                        {
+                            Id = 103,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 45
+                        },
+                        new
+                        {
+                            Id = 104,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 17
+                        },
+                        new
+                        {
+                            Id = 105,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 42
+                        },
+                        new
+                        {
+                            Id = 106,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 1
+                        },
+                        new
+                        {
+                            Id = 107,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 39
+                        },
+                        new
+                        {
+                            Id = 108,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 16
+                        },
+                        new
+                        {
+                            Id = 109,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 35
+                        },
+                        new
+                        {
+                            Id = 110,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 9
+                        },
+                        new
+                        {
+                            Id = 111,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 23
+                        },
+                        new
+                        {
+                            Id = 112,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 16
+                        },
+                        new
+                        {
+                            Id = 113,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 21
+                        },
+                        new
+                        {
+                            Id = 114,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 14
+                        },
+                        new
+                        {
+                            Id = 115,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 39
+                        },
+                        new
+                        {
+                            Id = 116,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 13
+                        },
+                        new
+                        {
+                            Id = 117,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 50
+                        },
+                        new
+                        {
+                            Id = 118,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 4
+                        },
+                        new
+                        {
+                            Id = 119,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 15
+                        },
+                        new
+                        {
+                            Id = 120,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 24
+                        },
+                        new
+                        {
+                            Id = 121,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 38
+                        },
+                        new
+                        {
+                            Id = 122,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 15
+                        },
+                        new
+                        {
+                            Id = 123,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 20
+                        },
+                        new
+                        {
+                            Id = 124,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 27
+                        },
+                        new
+                        {
+                            Id = 125,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 10
+                        },
+                        new
+                        {
+                            Id = 126,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 39
+                        },
+                        new
+                        {
+                            Id = 127,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 38
+                        },
+                        new
+                        {
+                            Id = 128,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 31
+                        },
+                        new
+                        {
+                            Id = 129,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 41
+                        },
+                        new
+                        {
+                            Id = 130,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 23
+                        },
+                        new
+                        {
+                            Id = 131,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 16
+                        },
+                        new
+                        {
+                            Id = 132,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 46
+                        },
+                        new
+                        {
+                            Id = 133,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 40
+                        },
+                        new
+                        {
+                            Id = 134,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 15
+                        },
+                        new
+                        {
+                            Id = 135,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 13
+                        },
+                        new
+                        {
+                            Id = 136,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 1
+                        },
+                        new
+                        {
+                            Id = 137,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 22
+                        },
+                        new
+                        {
+                            Id = 138,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 4
+                        },
+                        new
+                        {
+                            Id = 139,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 3
+                        },
+                        new
+                        {
+                            Id = 140,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 19
+                        },
+                        new
+                        {
+                            Id = 141,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 28
+                        },
+                        new
+                        {
+                            Id = 142,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 1
+                        },
+                        new
+                        {
+                            Id = 143,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 48
+                        },
+                        new
+                        {
+                            Id = 144,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 49
+                        },
+                        new
+                        {
+                            Id = 145,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 45
+                        },
+                        new
+                        {
+                            Id = 146,
+                            Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 1
+                        },
+                        new
+                        {
+                            Id = 147,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 25
+                        },
+                        new
+                        {
+                            Id = 148,
+                            Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 49
+                        },
+                        new
+                        {
+                            Id = 149,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 20
+                        },
+                        new
+                        {
+                            Id = 150,
+                            Date = new DateTime(2020, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            JobId = 43
+                        });
+                });
+
+            modelBuilder.Entity("PandoGReact.Models.ViewStat", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -494,217 +1787,217 @@ namespace PandoGReact.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("jobViewPredictions");
+                    b.ToTable("viewStats", "stats");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Count = 66,
+                            Count = 40,
                             Date = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            Count = 55,
+                            Count = 20,
                             Date = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
-                            Count = 99,
+                            Count = 70,
                             Date = new DateTime(2020, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 4,
-                            Count = 88,
+                            Count = 90,
                             Date = new DateTime(2020, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 5,
-                            Count = 121,
+                            Count = 130,
                             Date = new DateTime(2020, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 6,
-                            Count = 165,
+                            Count = 160,
                             Date = new DateTime(2020, 5, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 7,
-                            Count = 165,
+                            Count = 140,
                             Date = new DateTime(2020, 5, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 8,
-                            Count = 231,
+                            Count = 190,
                             Date = new DateTime(2020, 5, 8, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 9,
-                            Count = 297,
+                            Count = 200,
                             Date = new DateTime(2020, 5, 9, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 10,
-                            Count = 264,
+                            Count = 200,
                             Date = new DateTime(2020, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 11,
-                            Count = 253,
+                            Count = 240,
                             Date = new DateTime(2020, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 12,
-                            Count = 286,
+                            Count = 250,
                             Date = new DateTime(2020, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 13,
-                            Count = 253,
+                            Count = 220,
                             Date = new DateTime(2020, 5, 13, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 14,
-                            Count = 253,
+                            Count = 290,
                             Date = new DateTime(2020, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 15,
-                            Count = 330,
+                            Count = 270,
                             Date = new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 16,
-                            Count = 297,
+                            Count = 350,
                             Date = new DateTime(2020, 5, 16, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 17,
-                            Count = 352,
+                            Count = 360,
                             Date = new DateTime(2020, 5, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 18,
-                            Count = 319,
+                            Count = 340,
                             Date = new DateTime(2020, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 19,
-                            Count = 341,
+                            Count = 410,
                             Date = new DateTime(2020, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 20,
-                            Count = 319,
+                            Count = 420,
                             Date = new DateTime(2020, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 21,
-                            Count = 330,
+                            Count = 410,
                             Date = new DateTime(2020, 5, 21, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 22,
-                            Count = 407,
+                            Count = 380,
                             Date = new DateTime(2020, 5, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 23,
-                            Count = 473,
+                            Count = 400,
                             Date = new DateTime(2020, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 24,
-                            Count = 484,
+                            Count = 400,
                             Date = new DateTime(2020, 5, 24, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 25,
-                            Count = 528,
+                            Count = 420,
                             Date = new DateTime(2020, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 26,
-                            Count = 561,
+                            Count = 390,
                             Date = new DateTime(2020, 5, 26, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 27,
-                            Count = 583,
+                            Count = 400,
                             Date = new DateTime(2020, 5, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 28,
-                            Count = 649,
+                            Count = 450,
                             Date = new DateTime(2020, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 29,
-                            Count = 671,
+                            Count = 440,
                             Date = new DateTime(2020, 5, 29, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 30,
-                            Count = 726,
+                            Count = 490,
                             Date = new DateTime(2020, 5, 30, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 31,
-                            Count = 704,
+                            Count = 480,
                             Date = new DateTime(2020, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 32,
-                            Count = 682,
+                            Count = 490,
                             Date = new DateTime(2020, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 33,
-                            Count = 649,
+                            Count = 480,
                             Date = new DateTime(2020, 6, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 34,
-                            Count = 616,
+                            Count = 550,
                             Date = new DateTime(2020, 6, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 35,
-                            Count = 693,
+                            Count = 540,
                             Date = new DateTime(2020, 6, 4, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });

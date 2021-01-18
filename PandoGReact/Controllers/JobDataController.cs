@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using PandoGReact.Logic;
 using PandoGReact.Models;
 using PandoGReact.Repositories;
 using System;
@@ -24,40 +25,7 @@ namespace PandoGReact.Controllers
             _context = context;
         }
 
-        //[HttpGet]
-        //public IEnumerable<WeatherForecast> Get()
-        //{
-        //    var rng = new Random();
-        //    return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        //    {
-        //        Date = DateTime.Now.AddDays(index),
-        //        TemperatureC = rng.Next(-20, 55),
-        //        Summary = Summaries[rng.Next(Summaries.Length)]
-        //    })
-        //    .ToArray();
-        //}
 
-
-        public IEnumerable<IEnumerable<object>> GetChartData_()
-        {
-
-            List<List<object>> data = new List<List<object>>();
-            data.Add(new List<object> { "Date", "Job views", "Predicted jobs views", "Active jobs" });
-            data.Add(new List<object> { new DateTime(2020, 05, 1).ToString("MMM d"), 50, 60, 20 });
-            data.Add(new List<object> { new DateTime(2020, 05, 2).ToString("MMM d"), 70, 60, 25 });
-            data.Add(new List<object> { new DateTime(2020, 05, 3).ToString("MMM d"), 100, 80, 30 });
-            data.Add(new List<object> { new DateTime(2020, 05, 4).ToString("MMM d"), 150, 160, 33 });
-            data.Add(new List<object> { new DateTime(2020, 05, 5).ToString("MMM d"), 550, 560, 30 });
-            data.Add(new List<object> { new DateTime(2020, 05, 6).ToString("MMM d"), 300, 360, 50 });
-            data.Add(new List<object> { new DateTime(2020, 05, 7).ToString("MMM d"), 450, 330, 70 });
-            data.Add(new List<object> { new DateTime(2020, 05, 8).ToString("MMM d"), 700, 860, 80 });
-            data.Add(new List<object> { new DateTime(2020, 05, 9).ToString("MMM d"), 805, 760, 75 });
-            data.Add(new List<object> { new DateTime(2020, 05, 10).ToString("MMM d"), 1100, 1160, 90 });
-            data.Add(new List<object> { new DateTime(2020, 05, 11).ToString("MMM d"), 1300, 1260, 92 });
-            data.Add(new List<object> { new DateTime(2020, 05, 12).ToString("MMM d"), 1450, 1360, 99 });
-
-            return data;
-        }
 
         [HttpGet("chartData")]
         public IEnumerable<IEnumerable<object>> GetChartData()
@@ -74,23 +42,6 @@ namespace PandoGReact.Controllers
                };
                 data.Add(row);
             }
-
-
-            //List<List<object>> data_ = new List<List<object>>();
-            //data.Add(new List<object> { "Date", "Job views", "Predicted jobs views", "Active jobs" });
-            //data.Add(new List<object> { new DateTime(2020, 05, 1).ToString("MMM d"), 50, 60, 20 });
-            //data.Add(new List<object> { new DateTime(2020, 05, 2).ToString("MMM d"), 70, 60, 25 });
-            //data.Add(new List<object> { new DateTime(2020, 05, 3).ToString("MMM d"), 100, 80, 30 });
-            //data.Add(new List<object> { new DateTime(2020, 05, 4).ToString("MMM d"), 150, 160, 33 });
-            //data.Add(new List<object> { new DateTime(2020, 05, 5).ToString("MMM d"), 550, 560, 30 });
-            //data.Add(new List<object> { new DateTime(2020, 05, 6).ToString("MMM d"), 300, 360, 50 });
-            //data.Add(new List<object> { new DateTime(2020, 05, 7).ToString("MMM d"), 450, 330, 70 });
-            //data.Add(new List<object> { new DateTime(2020, 05, 8).ToString("MMM d"), 700, 860, 80 });
-            //data.Add(new List<object> { new DateTime(2020, 05, 9).ToString("MMM d"), 805, 760, 75 });
-            //data.Add(new List<object> { new DateTime(2020, 05, 10).ToString("MMM d"), 1100, 1160, 90 });
-            //data.Add(new List<object> { new DateTime(2020, 05, 11).ToString("MMM d"), 1300, 1260, 92 });
-            //data.Add(new List<object> { new DateTime(2020, 05, 12).ToString("MMM d"), 1450, 1360, 99 });
-
             return data;
         }
 
@@ -99,25 +50,57 @@ namespace PandoGReact.Controllers
             return new List<object> { "Date", "Job views", "Predicted jobs views", "Active jobs" };
         }
 
-        private List<DataPoint> GetDataPoints_()
+        private List<List<object>>  GetDataPoints_new()
         {
-            List<DataPoint> dataPoints = new List<DataPoint>();
-            dataPoints.Add(new DataPoint { Date = new DateTime(2020, 05, 1), JobViews = 50, ViewsPrediction = 60, ActiveJobs = 20 });
-            dataPoints.Add(new DataPoint { Date = new DateTime(2020, 05, 2), JobViews = 70, ViewsPrediction = 60, ActiveJobs = 25 });
-            dataPoints.Add(new DataPoint { Date = new DateTime(2020, 05, 3), JobViews = 100, ViewsPrediction = 80, ActiveJobs = 30 });
-            return dataPoints;
+            Statistics statistics = new Statistics();
+            //  var list = Mocks.CreateFakeJobLines();
+            var jobLines = _context.JobLines.ToList();
+            Dictionary<DateTime, int> activeJobs = statistics.CalcStats(jobLines);
+            Dictionary<DateTime, int> prediction = _context
+                .PredictionStats
+                .ToDictionary(p => p.Date, p => p.Count);
+
+            var views = _context.ViewLines
+                .GroupBy(a => a.Date)
+                .Select(g => new ViewStat { Date = g.Key, Count = g.Count() })
+                .ToDictionary(v => v.Date, v => v.Count);
+            var dataObject = GenerateDataObject(activeJobs, views, prediction);
+            return dataObject;
         }
+
+        private List<List<object>> GenerateDataObject(
+            Dictionary<DateTime, int> activeJobs,
+            Dictionary<DateTime, int> views,
+            Dictionary<DateTime, int> predictions)
+        {
+            List<object> title = GetTitles();
+            List<List<object>> data = new List<List<object>>();
+            data.Add(title);
+
+            foreach (var date in activeJobs.Keys)
+            {
+                List<object> row_ = new List<object>
+                {
+                    date.ToString("MMM d"),
+                    views[date],
+                    predictions[date],
+                    activeJobs[date]
+                };
+                data.Add(row_);
+            }
+            return data;
+        }
+
+
+
+
         private IEnumerable<DataPoint> GetDataPoints()
         {
 
-            var jobss = _context.Jobs.Find(1);
-            var viewss = _context.JobViews.ToList();
-            var predss= _context.jobViewPredictions.ToList();
 
-
-            var dataPoints = from jobs in _context.Jobs
-                             join views in _context.JobViews on jobs.Date equals views.Date
-                             join pred in _context.jobViewPredictions on views.Date equals pred.Date
+            var dataPoints = from jobs in _context.JobsStats
+                             join views in _context.ViewStats on jobs.Date equals views.Date
+                             join pred in _context.PredictionStats on views.Date equals pred.Date
                              select new DataPoint
                              {
                                  Date = jobs.Date,
@@ -130,6 +113,52 @@ namespace PandoGReact.Controllers
             return dataPoints;
 
         }
+
+
+
+        private List<JobLine> CreateFakeJobLines()
+        {
+
+            List<JobLine> lines = new List<JobLine>();
+            lines.Add(new JobLine { Id = 1, DateOpen = new DateTime(1, 5, 2020), DateClose = new DateTime(3, 5, 2020) });
+            lines.Add(new JobLine { Id = 2, DateOpen = new DateTime(1, 5, 2020), DateClose = new DateTime(4, 5, 2020) });
+            lines.Add(new JobLine { Id = 3, DateOpen = new DateTime(1, 5, 2020), DateClose = null });
+            lines.Add(new JobLine { Id = 4, DateOpen = new DateTime(1, 5, 2020), DateClose = null });
+            lines.Add(new JobLine { Id = 5, DateOpen = new DateTime(1, 5, 2020), DateClose = null });
+            lines.Add(new JobLine { Id = 6, DateOpen = new DateTime(1, 5, 2020), DateClose = null });
+            lines.Add(new JobLine { Id = 7, DateOpen = new DateTime(1, 5, 2020), DateClose = null });
+            lines.Add(new JobLine { Id = 8, DateOpen = new DateTime(1, 5, 2020), DateClose = null });
+            lines.Add(new JobLine { Id = 9, DateOpen = new DateTime(1, 5, 2020), DateClose = null });
+            lines.Add(new JobLine { Id = 10, DateOpen = new DateTime(1, 5, 2020), DateClose = null });
+            return lines;
+
+        }
+
     }
+
 }
 
+
+
+
+
+            //var prediction = _context.jobViewPredictions
+            //    .Select(a => new KeyValuePair{a.Date, a.Count })
+            //    .ToDictionary(x => x.Date);
+            //.Select(a=> new { a.Key, a.Count })
+            //.AsEnumerable()
+            //.ToDictionary(kvp=>kvp.Date,)
+
+            //            var prediction = db
+            //.Table
+            //.Select(p => new { p.Key, p.Value })
+            //.AsEnumerable()
+            //.ToDictionary(kvp => kvp.Key, kvp => kvp.Value)
+            ;
+
+
+//var views = _context.Views_
+//    .GroupBy(a => a.Date)
+//    .Select(g=>new JobView { Date = g.Key, Count = g.Count()})
+//    .ToList();
+//List<DataPoint> dataPoints = new List<DataPoint>();  
