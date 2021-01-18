@@ -29,7 +29,6 @@ class FetchData extends React.PureComponent<JobStatsProps> {
     return (
       <React.Fragment>
         <h1 id="tabelLabel">Job Statistics</h1>
-        <p>TODO</p>
         {this.renderChart()}
 
       </React.Fragment>
@@ -64,8 +63,8 @@ class FetchData extends React.PureComponent<JobStatsProps> {
               colors: ['#96c03b', '#5bbdd2', '#dddddd'],
               pointSize: 30,
               series: {
-                0: { targetAxisIndex: 0, pointShape: 'circle', pointSize: 10, title: 'sdf' },
-                1: { pointShape: 'circle', pointSize: 10, lineDashStyle: [4, 4] },
+                0: { targetAxisIndex: 0, pointShape: 'circle', pointSize: 8, title: 'sdf' },
+                1: { pointShape: 'circle', pointSize: 8, lineDashStyle: [4, 4] },
                 2: { type: 'bars', targetAxisIndex: 1 }
               },
               hAxis: {

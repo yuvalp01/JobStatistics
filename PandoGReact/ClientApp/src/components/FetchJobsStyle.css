@@ -6,7 +6,7 @@
     stroke: #96c03b !important;
   } */
   #chart circle[fill="#5bbdd2"] {
-    stroke-width: 4px !important;
+    stroke-width: 2px !important;
     fill: white !important;
     stroke: #5bbdd2 !important;
   }

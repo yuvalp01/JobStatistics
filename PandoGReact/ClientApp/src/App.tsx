@@ -1,16 +1,15 @@
 import * as React from 'react';
-import { Route } from 'react-router';
+import { Redirect, Route } from 'react-router';
 import Layout from './components/Layout';
-import Home from './components/Home';
-import Counter from './components/Counter';
+// import Home from './components/Home';
+// import Counter from './components/Counter';
 import FetchJobData from './components/FetchJobData';
 
 import './custom.css'
 
 export default () => (
     <Layout>
-        <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
+        <Redirect exact from="/" to="fetch-data" />
         <Route path='/fetch-data/:startDateIndex?' component={FetchJobData} />
     </Layout>
 );
