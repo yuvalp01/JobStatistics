@@ -18,13 +18,14 @@ namespace PandoGReact.Controllers
 
 
         private readonly ILogger<JobDataController> _logger;
-        private readonly StatisticsRepository _repo_stats;
+       // private readonly StatisticsRepository _repo_stats;
+        private readonly Repository _repo;
 
-        public JobDataController(JobContext context, ILogger<JobDataController> logger)
+        public JobDataController(JobContext context, Repository repo, ILogger<JobDataController> logger)
         {
             _logger = logger;
-            _context = context;
-            _repo_stats = new StatisticsRepository(context);
+             _repo = repo;
+            //_repo_stats = new StatisticsRepository(context);
         }
 
 
@@ -33,7 +34,7 @@ namespace PandoGReact.Controllers
         public IEnumerable<IEnumerable<object>> GetChartData()
         {
 
-            var dataObject = _repo_stats.GetChartDataObject();
+            var dataObject = _repo.GetChartDataObject();
             return dataObject;
         }
 

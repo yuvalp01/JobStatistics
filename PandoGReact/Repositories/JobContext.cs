@@ -36,29 +36,30 @@ namespace PandoGReact.Repositories
         {
 
             var id = 1;
-            DateTime date = new DateTime(2020, 4, 30);
+            DateTime dateOpenJob = new DateTime(2020, 4, 30);
+            //DateTime dateCloseJob = new DateTime(2020, 5, 1);
             var stockJobs = new Faker<JobLine>()
                 .RuleFor(m => m.Id, f => id++)
-                .RuleFor(m => m.DateOpen, f => date.AddDays(1))
+                .RuleFor(m => m.DateOpen, f => dateOpenJob = dateOpenJob.AddDays(1))
                 .RuleFor(m => m.Title, f => f.Lorem.Sentence(3))
-                .RuleFor(m => m.DateClose, f => date.AddDays(f.Random.Int(1,5)));// date.AddDays(f.Random.Number())
+                .RuleFor(m => m.DateClose, f => dateOpenJob.AddDays(f.Random.Int(1,5)));// date.AddDays(f.Random.Number())
 
             // generate 50 jobs
             modelBuilder
                 .Entity<JobLine>()
-                .HasData(stockJobs.Generate(50));
+                .HasData(stockJobs.Generate(30));
 
 
             id = 1;
-            date = new DateTime(2020, 4, 30);
+            DateTime dateView = new DateTime(2020, 5, 1);
             var stockViews = new Faker<ViewLine>()
                 .RuleFor(m => m.Id, f => id++)
-                .RuleFor(m => m.JobId, f => f.Random.Int(1, 50))
-                .RuleFor(m => m.Date, f => date.AddDays(f.Random.Int(0, 2)));
+                .RuleFor(m => m.JobId, f => f.Random.Int(1, 30))
+                .RuleFor(m => m.Date, f => dateView = dateView.AddDays(f.Random.Int(0, 1).OrDefault(f,.8f)));
 
             modelBuilder
                 .Entity<ViewLine>()
-                .HasData(stockViews.Generate(150));
+                .HasData(stockViews.Generate(600));
 
 
             //id = 1;

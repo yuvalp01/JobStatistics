@@ -7,19 +7,18 @@ using System.Threading.Tasks;
 
 namespace PandoGReact.Repositories
 {
-    public class LineRepository: Repository
+    public class RawDataRepository: Repository
     {
 
-        public LineRepository(JobContext context) : base(context)
+        public RawDataRepository(JobContext context) : base(context)
         {
         }
 
 
 
-        private IEnumerable<IEnumerable<object>> GetDataPoints_new()
+        public override IEnumerable<IEnumerable<object>> GetChartDataObject()
         {
             Statistics statistics = new Statistics();
-            //  var list = Mocks.CreateFakeJobLines();
             var jobLines = _context.JobLines.ToList();
             Dictionary<DateTime, int> activeJobs = statistics.CalcStats(jobLines);
             Dictionary<DateTime, int> prediction = _context
@@ -47,56 +46,72 @@ namespace PandoGReact.Repositories
 
             foreach (var date in activeJobs.Keys)
             {
-                List<object> row_ = new List<object>
-                {
-                    date.ToString("MMM d"),
-                    views[date],
-                    predictions[date],
-                    activeJobs[date]
-                };
-                data.Add(row_);
-            }
-            return data;
-        }
-        public override IEnumerable<IEnumerable<object>> GetChartDataObject()
-        {
-            List<object> title = GetTitles();
-            IEnumerable<DataPoint> dataPoints = GetDataPoints();
+                List<object> row = new List<object>();
+                //Date
+                row.Add(date.ToString("MMM d"));
 
-            List<List<object>> data = new List<List<object>>();
-            data.Add(title);
-            foreach (var dataPoint in dataPoints)
-            {
-                List<object> row = new List<object> {
-                    dataPoint.Date.ToString("MMM d"),
-                    dataPoint.JobViews,
-                    dataPoint.ViewsPrediction,
-                    dataPoint.ActiveJobs
-               };
+                //Views 
+                int viewCount = 0;
+                views.TryGetValue(date, out viewCount);
+                row.Add(viewCount);
+
+                //Predictions
+                int predCount = 0;
+                predictions.TryGetValue(date, out predCount);
+                row.Add(predCount);
                 data.Add(row);
+
+                row.Add(activeJobs[date]);
+
+                //List<object> row = new List<object>
+                //{
+                //    date.ToString("MMM d"),
+                //    views[date],
+                //    predictions[date],
+                //    activeJobs[date]
+                //};
             }
             return data;
         }
+        //public override IEnumerable<IEnumerable<object>> GetChartDataObject()
+        //{
+        //    List<object> title = GetTitles();
+        //    IEnumerable<DataPoint> dataPoints = GetDataPoints();
+
+        //    List<List<object>> data = new List<List<object>>();
+        //    data.Add(title);
+        //    foreach (var dataPoint in dataPoints)
+        //    {
+        //        List<object> row = new List<object> {
+        //            dataPoint.Date.ToString("MMM d"),
+        //            dataPoint.JobViews,
+        //            dataPoint.ViewsPrediction,
+        //            dataPoint.ActiveJobs
+        //       };
+        //        data.Add(row);
+        //    }
+        //    return data;
+        //}
 
 
-        public IEnumerable<DataPoint> GetDataPoints()
-        {
+        //public IEnumerable<DataPoint> GetDataPoints()
+        //{
 
 
-            var dataPoints = from jobs in _context.JobsStats
-                             join views in _context.ViewStats on jobs.Date equals views.Date
-                             join pred in _context.PredictionStats on views.Date equals pred.Date
-                             select new DataPoint
-                             {
-                                 Date = jobs.Date,
-                                 ActiveJobs = jobs.Count,
-                                 JobViews = views.Count,
-                                 ViewsPrediction = pred.Count
-                             };
+        //    var dataPoints = from jobs in _context.JobsStats
+        //                     join views in _context.ViewStats on jobs.Date equals views.Date
+        //                     join pred in _context.PredictionStats on views.Date equals pred.Date
+        //                     select new DataPoint
+        //                     {
+        //                         Date = jobs.Date,
+        //                         ActiveJobs = jobs.Count,
+        //                         JobViews = views.Count,
+        //                         ViewsPrediction = pred.Count
+        //                     };
 
 
-            return dataPoints;
+        //    return dataPoints;
 
-        }
+        //}
     }
 }

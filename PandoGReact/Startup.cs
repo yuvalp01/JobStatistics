@@ -28,6 +28,10 @@ namespace PandoGReact
                 options.UseSqlServer(Configuration.GetConnectionString("JobsConnStr"), builder =>
                 builder.EnableRetryOnFailure()));
 
+            //Replace here for raw data repository
+            services.AddScoped<Repository, StatisticsRepository>();
+           // services.AddScoped<Repository, RawDataRepository>();
+
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
