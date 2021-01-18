@@ -1,0 +1,16 @@
+  /* #chart circle {
+    stroke-width: 4px !important;
+    fill: none !important;
+  }
+#chart circle[fill="#96c03b"] {
+    stroke: #96c03b !important;
+  } */
+  #chart circle[fill="#5bbdd2"] {
+    stroke-width: 4px !important;
+    fill: white !important;
+    stroke: #5bbdd2 !important;
+  }
+
+  .google-visualization-tooltip-item {
+    white-space: nowrap;
+  }
